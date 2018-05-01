@@ -17,8 +17,12 @@ class ArtistsController < ApplicationController
   def similar
     @artist = Artist.find(params[:id])
     @artists = []
-  #  require 'json'
-  #  artist = JSON.parse string
+    require 'open-uri'
+    @response = open('http://ws.audioscrobbler.com/2.0/?method=artist.getsimilar&artist=cher&api_key=649104dbc970cbc72a343fa37daaab71&format=json').read
+    require 'json'
+    @artists = JSON.parse @response
+    @artists = @artists['similarartists']
+    @artists = @artists['artist']
   end
 
   # GET /artists/new

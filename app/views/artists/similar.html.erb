@@ -1,11 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Similar Artists like <%= @artist.name %></h1>
+<% # @response %>
 
 <table>
   <thead>
     <tr>
       <th>Name</th>
+      <th>Match</th>
       <th>Image</th>
       <th colspan="2"></th>
     </tr>
@@ -14,8 +16,9 @@
   <tbody>
     <% @artists.each do |artist| %>
       <tr>
-        <td><%= artist.name %></td>
-
+        <td><%= artist['name'] %></td>
+        <td><%= artist['match'] %></td>
+        <td><img src="<%= artist['image'][1]['#text'] %>", width="100" , height="100"></img></td>
       </tr>
     <% end %>
   </tbody>
