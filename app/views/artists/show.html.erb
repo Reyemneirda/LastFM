@@ -7,7 +7,9 @@
 
 <p>
   <strong>Image:</strong>
-  <%= @artist.image %>
+  <p>
+<img src="<%= @artist.image %>", width="100" , height="100"></img>
+</p>
 </p>
 
 <%= link_to 'Edit', edit_artist_path(@artist) %> |
