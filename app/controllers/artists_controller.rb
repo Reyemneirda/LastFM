@@ -12,6 +12,15 @@ class ArtistsController < ApplicationController
   def show
   end
 
+  # GET /artists/1/similar
+  # GET /artists/1/similar.json
+  def similar
+    @artist = Artist.find(params[:id])
+    @artists = []
+  #  require 'json'
+  #  artist = JSON.parse string
+  end
+
   # GET /artists/new
   def new
     @artist = Artist.new
